@@ -5,6 +5,9 @@
  */
 package leetcode;
 
+import java.util.HashMap;
+import java.util.Iterator;
+
 /**
  *
  * @author leo
@@ -12,20 +15,17 @@ package leetcode;
 public class TwoSum {
     
     public static void main(String[] args){
-        int[] nums = {2, 7, 11, 15};
-        int target = 9;
-        (new Solution()).twoSum(nums, target);
+        int[] nums = {0, 0, 0, 0, 0, 0};
+        int target = 6;
+//        (new TwoSum()).twoSum(nums, target);
+        (new TwoSum()).twoSum_2(nums, target);
     }
-}
-
-
-//Submission Result: Accepted 
-class Solution {
+    
     public int[] twoSum(int[] nums, int target) {
         int[] result = {-1, -1};
         
         for( int i = 0 ; i < nums.length ; i++ ){
-            for( int j = 0 ; j < nums.length ; j++ ){
+            for( int j = i+1 ; j < nums.length ; j++ ){
                 if ( i>=j ){continue;}
                 int twoSum = nums[i]+nums[j];
 //                System.out.println("nums["+i+"]="+nums[i] + ";" + "nums["+j+"]="+nums[j]+";twoSum="+twoSum);
@@ -36,6 +36,20 @@ class Solution {
                 }
             }
         }
+        
+        return result;
+    }
+    
+    public int[] twoSum_2(int[] nums, int target) {
+        int[] result = {-1, -1};
+        
+        if ( nums[nums.length-1] < target/2 ){throw new IllegalArgumentException("No two sum solution");}
+        if ( nums[0] > target/2 ){throw new IllegalArgumentException("No two sum solution");}
+        
+        int leftIndex = 0;
+        int rightIndex = nums.length-1;
+        
+        if ( result[0] == -1 && result[1] == -1 ){throw new IllegalArgumentException("No two sum solution");}
         
         return result;
     }
