@@ -21,6 +21,7 @@ public class TwoSum {
         (new TwoSum()).twoSum_2(nums, target);
     }
     
+    //Submission Result: Accepted
     public int[] twoSum(int[] nums, int target) {
         int[] result = {-1, -1};
         
@@ -40,6 +41,7 @@ public class TwoSum {
         return result;
     }
     
+    //Submission Result: Accepted
     public int[] twoSum_2(int[] nums, int target) {
         int[] result = {-1, -1};
         
@@ -48,6 +50,19 @@ public class TwoSum {
         
         int leftIndex = 0;
         int rightIndex = nums.length-1;
+        
+        while( leftIndex < rightIndex ){
+            int tempSum = nums[leftIndex] + nums[rightIndex];
+            if (tempSum == target) {
+                result[0] = leftIndex + 1;
+                result[1] = rightIndex + 1;
+                break;
+            }else if ( tempSum < target ){
+                leftIndex++;
+            }else{
+                rightIndex--;
+            }
+        }
         
         if ( result[0] == -1 && result[1] == -1 ){throw new IllegalArgumentException("No two sum solution");}
         
