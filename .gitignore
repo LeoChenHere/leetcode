@@ -1,1 +1,13 @@
-/build/
+# ignore everything
+*
+
+# white list
+!*/
+!.gradle/*
+!src/*
+*/.DS_Store
+
+# add all the file types you don't want miss
+!.gitignore
+!*.java
+!*.gradle
